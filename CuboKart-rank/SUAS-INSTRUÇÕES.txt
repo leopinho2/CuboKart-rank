@@ -1,0 +1,5 @@
+Arquivo texto para Instruções.
+
+colocar o arvivo log em c:/workspace/Corrida.log
+
+Quando perguntado digitar o caminho do arquivo.log
