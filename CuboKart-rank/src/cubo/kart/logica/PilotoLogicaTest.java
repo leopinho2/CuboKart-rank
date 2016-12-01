@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import cubo.kart.modelo.Piloto;
 
-public class PilotoLogicTest {
+public class PilotoLogicaTest {
 
 	@Test
 	public void possicoesTest(){
@@ -60,13 +60,36 @@ public class PilotoLogicTest {
 		
 		ArrayList<Piloto> listaTest = new ArrayList<Piloto>();
 
-		listaTest = PilotoLogic.possicoes(listaPiloto);
+		listaTest = PilotoLogica.possicoes(listaPiloto);
 
 		
 		assertEquals(listacorreta.get(0).getCodigo(), listaTest.get(0).getCodigo());
 		assertEquals(listacorreta.get(1).getCodigo(), listaTest.get(1).getCodigo());
 		assertEquals(listacorreta.get(2).getCodigo(), listaTest.get(2).getCodigo());
 		
+	}
+	
+	@Test
+	public void carregarDadosPilotoTest(){
+		
+		Piloto correto = new Piloto();
+		correto.setCodigo("111");
+		correto.setNome("A.SENNA");
+		correto.setQuantidadeDeVoltas(1);
+		correto.setTempoDeProva(61010);
+		
+		
+		String[] celulas = {"23:49:08.277","111 – A.SENNA","1","1:01.010","44,275"};
+		
+		
+		
+		
+		Piloto pilotoTeste = PilotoLogica.carregarDadosPiloto(celulas );
+		
+		assertEquals(pilotoTeste.getCodigo(),correto.getCodigo());
+		assertEquals(pilotoTeste.getNome(),correto.getNome());
+		assertEquals(pilotoTeste.getQuantidadeDeVoltas(),correto.getQuantidadeDeVoltas());
+		assertEquals(pilotoTeste.getTempoDeProva(),correto.getTempoDeProva());
 		
 		
 	}

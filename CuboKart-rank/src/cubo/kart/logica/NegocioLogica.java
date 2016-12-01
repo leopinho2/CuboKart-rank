@@ -24,22 +24,10 @@ public class NegocioLogica {
 				String linha;
 
 				while ((linha = br.readLine()) != null) {
-					String[] celulas;
-					Piloto piloto = new Piloto();
-					celulas = linha.split("	");
+					String[] celulas = linha.split("	");
 					if (!celulas[0].equals("Hora")) {
-
-						String codigoNome = celulas[1];
-						String[] codigoNomeSeparados = codigoNome.split(" – ");
-						piloto.setCodigo(codigoNomeSeparados[0]);
-						piloto.setNome(codigoNomeSeparados[1]);
-
-						int numeroVolta = Integer.parseInt(celulas[2]);
-						piloto.setQuantidadeDeVoltas(numeroVolta);
-
-						String tempoVolta = celulas[3];
-						int tempoVoltaMilissegundos = Utils.coverterMinutosEmMilissegundos(tempoVolta);
-						piloto.setTempoDeProva(tempoVoltaMilissegundos);
+						
+						Piloto piloto = PilotoLogica.carregarDadosPiloto(celulas);
 
 						if (listaPiloto.size() >= 1) {
 							boolean existe = false;
@@ -73,7 +61,7 @@ public class NegocioLogica {
 				e.printStackTrace();
 			}
 
-			listaPiloto = PilotoLogic.possicoes(listaPiloto);
+			listaPiloto = PilotoLogica.possicoes(listaPiloto);
 			
 			
 			String saida = "Posição Chegada\tCódigo Piloto\tNome Piloto\tQtde Voltas Completadas\tTempo Total de Prova\n";
@@ -90,5 +78,6 @@ public class NegocioLogica {
 		}
 
 	}
+
 
 }

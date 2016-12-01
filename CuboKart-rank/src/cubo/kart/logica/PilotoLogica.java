@@ -3,8 +3,9 @@ package cubo.kart.logica;
 import java.util.ArrayList;
 
 import cubo.kart.modelo.Piloto;
+import cubo.kart.utils.Utils;
 
-public class PilotoLogic {
+public class PilotoLogica {
 
 	public static ArrayList<Piloto> possicoes(ArrayList<Piloto> listaPiloto) {
 		ArrayList<Piloto> listaNova = new ArrayList<Piloto>();
@@ -32,6 +33,23 @@ public class PilotoLogic {
 			posicao += 1;
 		}
 		return listaNova;
+	}
+
+	public static Piloto carregarDadosPiloto(String[] celulas) {
+		Piloto piloto = new Piloto();
+
+		String codigoNome = celulas[1];
+		String[] codigoNomeSeparados = codigoNome.split(" – ");
+		piloto.setCodigo(codigoNomeSeparados[0]);
+		piloto.setNome(codigoNomeSeparados[1]);
+
+		int numeroVolta = Integer.parseInt(celulas[2]);
+		piloto.setQuantidadeDeVoltas(numeroVolta);
+
+		String tempoVolta = celulas[3];
+		int tempoVoltaMilissegundos = Utils.coverterMinutosEmMilissegundos(tempoVolta);
+		piloto.setTempoDeProva(tempoVoltaMilissegundos);
+		return piloto;
 	}
 
 }
