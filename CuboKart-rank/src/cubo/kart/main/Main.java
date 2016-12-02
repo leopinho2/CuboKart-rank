@@ -7,7 +7,7 @@ import cubo.kart.logica.NegocioLogica;
 public class Main {
 
 	public static void main(String[] args) {
-		
+
 		Scanner entrada = new Scanner(System.in);
 		String caminhoEntrada;
 
@@ -17,7 +17,7 @@ public class Main {
 		entrada.close();
 
 		NegocioLogica.ResultadoDaCorrida(caminhoEntrada);
-		
+
 	}
 
 }

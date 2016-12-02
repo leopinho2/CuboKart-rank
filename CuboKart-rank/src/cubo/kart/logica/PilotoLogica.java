@@ -11,7 +11,6 @@ public class PilotoLogica {
 		ArrayList<Piloto> listaNova = new ArrayList<Piloto>();
 		int posicao = 1;
 		while (listaPiloto.size() > 0) {
-			
 
 			Piloto piloto = listaPiloto.get(0);
 			for (int i = 1; i < listaPiloto.size(); i++) {
@@ -20,9 +19,9 @@ public class PilotoLogica {
 							&& listaPiloto.get(i).getTempoDeProva() < piloto.getTempoDeProva()) {
 						piloto = listaPiloto.get(i);
 					}
-				}else{
+				} else {
 					piloto.setPosicao(posicao);
-					
+
 				}
 			}
 
@@ -51,7 +50,7 @@ public class PilotoLogica {
 		piloto.setTempoDeProva(tempoVoltaMilissegundos);
 		return piloto;
 	}
-	
+
 	public static ArrayList<Piloto> atualizaListaPiloto(ArrayList<Piloto> listaPiloto, Piloto piloto) {
 		if (listaPiloto.size() >= 1) {
 			boolean existe = false;
@@ -76,7 +75,7 @@ public class PilotoLogica {
 		} else {
 			listaPiloto.add(piloto);
 		}
-		
+
 		return listaPiloto;
 	}
 

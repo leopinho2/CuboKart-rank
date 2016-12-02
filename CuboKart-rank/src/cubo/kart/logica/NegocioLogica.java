@@ -5,8 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
 import cubo.kart.modelo.Piloto;
 import cubo.kart.utils.Constantes;
 import cubo.kart.utils.Utils;
@@ -26,7 +24,7 @@ public class NegocioLogica {
 				while ((linha = br.readLine()) != null) {
 					String[] celulas = linha.split("	");
 					if (!celulas[0].equals("Hora")) {
-						
+
 						Piloto piloto = PilotoLogica.carregarDadosPiloto(celulas);
 
 						listaPiloto = PilotoLogica.atualizaListaPiloto(listaPiloto, piloto);
@@ -35,29 +33,24 @@ public class NegocioLogica {
 
 				br.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 			listaPiloto = PilotoLogica.possicoes(listaPiloto);
-			
-			
+
 			String saida = "Posição Chegada\tCódigo Piloto\tNome Piloto\tQtde Voltas Completadas\tTempo Total de Prova\n";
-			
+
 			for (Piloto piloto2 : listaPiloto) {
-				
+
 				saida += piloto2.getPosicao() + "\t" + piloto2.getCodigo() + "\t" + piloto2.getNome() + "\t"
 						+ piloto2.getQuantidadeDeVoltas() + "\t"
 						+ Utils.coverterMilissegundosEmMinutos(piloto2.getTempoDeProva()) + "\n";
 
 			}
 			System.out.print(saida);
-			
+
 		}
 
 	}
-
-
-
 
 }
