@@ -3,3 +3,27 @@ Arquivo texto para Instruções.
 colocar o arvivo log em c:/workspace/Corrida.log
 
 Quando perguntado digitar o caminho do arquivo.log
+
+
+
+
+Bônus
+
+Não obrigatório. Faça apenas caso se identifique com o problema ou se achar que há algo interessante a ser mostrado na solução
+
+1--Descobrir a melhor volta de cada piloto
+colocaria um novo atributo no modelo e no PilotoLogica.atualizaListaPiloto atualizaria esse valor caso fosse menor
+
+2--Descobrir a melhor volta da corrida
+criaria um atributo tipo Piloto na NegocioLogica e salvaria todas as informacoes da volta mais rapida na interacao do Piloto e exibiria com uma string 
+
+"piloto: " + piloto.getNome() +" melhor volta ; "+piloto.getTempoDeProva()
+
+que no momento seria o valor da volta 
+
+3--Calcular a velocidade média de cada piloto durante toda corrida
+novo atributo na classe piloto pegando a velocidade media do log somando com a da lista e dividindo por 2 a cada interacao do Piloto
+
+4--Descobrir quanto tempo cada piloto chegou após o vencedor
+do valor total do primeiro colocado acharia os milissegundo que o 2 3 4 5 etc chegou atras trasformando novamente em string pelo metodo Utils.coverterMilissegundosEmMinutos
+e pelo numero se voltas se o piloto terminou ou nao a prova 
