@@ -10,6 +10,7 @@ import cubo.kart.modelo.Piloto;
 
 public class PilotoLogicaTest {
 
+	
 	@Test
 	public void possicoesTest(){
 		Piloto um = new Piloto();
@@ -72,11 +73,11 @@ public class PilotoLogicaTest {
 	@Test
 	public void carregarDadosPilotoTest(){
 		
-		Piloto correto = new Piloto();
-		correto.setCodigo("111");
-		correto.setNome("A.SENNA");
-		correto.setQuantidadeDeVoltas(1);
-		correto.setTempoDeProva(61010);
+		Piloto senna = new Piloto();
+		senna.setCodigo("111");
+		senna.setNome("A.SENNA");
+		senna.setQuantidadeDeVoltas(1);
+		senna.setTempoDeProva(61010);
 		
 		
 		String[] celulas = {"23:49:08.277","111 – A.SENNA","1","1:01.010","44,275"};
@@ -86,12 +87,48 @@ public class PilotoLogicaTest {
 		
 		Piloto pilotoTeste = PilotoLogica.carregarDadosPiloto(celulas );
 		
-		assertEquals(pilotoTeste.getCodigo(),correto.getCodigo());
-		assertEquals(pilotoTeste.getNome(),correto.getNome());
-		assertEquals(pilotoTeste.getQuantidadeDeVoltas(),correto.getQuantidadeDeVoltas());
-		assertEquals(pilotoTeste.getTempoDeProva(),correto.getTempoDeProva());
+		assertEquals(pilotoTeste.getCodigo(),senna.getCodigo());
+		assertEquals(pilotoTeste.getNome(),senna.getNome());
+		assertEquals(pilotoTeste.getQuantidadeDeVoltas(),senna.getQuantidadeDeVoltas());
+		assertEquals(pilotoTeste.getTempoDeProva(),senna.getTempoDeProva());
 		
 		
 	}
+	
+	@Test
+	public void atualizaListaPilotoTest(){
+		
+		Piloto senna = new Piloto();
+		senna.setCodigo("111");
+		senna.setNome("A.SENNA");
+		senna.setQuantidadeDeVoltas(1);
+		senna.setTempoDeProva(61010);
+		
+		Piloto prost = new Piloto();
+		prost.setCodigo("222");
+		prost.setNome("A.PROST");
+		prost.setQuantidadeDeVoltas(1);
+		prost.setTempoDeProva(61011);
+		
+		Piloto senna2 = new Piloto();
+		senna2.setCodigo("111");
+		senna2.setNome("A.SENNA");
+		senna2.setQuantidadeDeVoltas(2);
+		senna2.setTempoDeProva(61013);
+		
+		ArrayList<Piloto> listaPiloto = new ArrayList<>();
+		listaPiloto.add(senna);
+		listaPiloto.add(prost);
+		
+		ArrayList<Piloto> listaTest = new ArrayList<Piloto>();
+		
+		listaTest = PilotoLogica.atualizaListaPiloto(listaPiloto, senna2);
+		
+		assertEquals(senna.getNome(), listaTest.get(0).getNome());
+		assertEquals(122023, listaTest.get(0).getTempoDeProva());
+		
+	}
+	
+	
 
 }

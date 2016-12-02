@@ -51,5 +51,33 @@ public class PilotoLogica {
 		piloto.setTempoDeProva(tempoVoltaMilissegundos);
 		return piloto;
 	}
+	
+	public static ArrayList<Piloto> atualizaListaPiloto(ArrayList<Piloto> listaPiloto, Piloto piloto) {
+		if (listaPiloto.size() >= 1) {
+			boolean existe = false;
+			// procurar na lista o piloto atualizar a informacao
+			// ou adiconar o piloto
+			for (int i = 0; i < listaPiloto.size(); i++) {
+
+				if (listaPiloto.get(i).getCodigo().equals(piloto.getCodigo())) {
+					// atualiza volta
+					listaPiloto.get(i).setQuantidadeDeVoltas(piloto.getQuantidadeDeVoltas());
+					// atualiza tempo de prova
+					int novoTempo = listaPiloto.get(i).getTempoDeProva() + piloto.getTempoDeProva();
+					listaPiloto.get(i).setTempoDeProva(novoTempo);
+
+					existe = true;
+					break;
+				}
+			}
+			if (!existe) {
+				listaPiloto.add(piloto);
+			}
+		} else {
+			listaPiloto.add(piloto);
+		}
+		
+		return listaPiloto;
+	}
 
 }

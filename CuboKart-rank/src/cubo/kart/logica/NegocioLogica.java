@@ -29,29 +29,7 @@ public class NegocioLogica {
 						
 						Piloto piloto = PilotoLogica.carregarDadosPiloto(celulas);
 
-						if (listaPiloto.size() >= 1) {
-							boolean existe = false;
-							// procurar na lista o piloto atualizar a informacao
-							// ou adiconar o piloto
-							for (int i = 0; i < listaPiloto.size(); i++) {
-
-								if (listaPiloto.get(i).getCodigo().equals(piloto.getCodigo())) {
-									// atualiza volta
-									listaPiloto.get(i).setQuantidadeDeVoltas(piloto.getQuantidadeDeVoltas());
-									// atualiza tempo de prova
-									int novoTempo = listaPiloto.get(i).getTempoDeProva() + piloto.getTempoDeProva();
-									listaPiloto.get(i).setTempoDeProva(novoTempo);
-
-									existe = true;
-									break;
-								}
-							}
-							if (!existe) {
-								listaPiloto.add(piloto);
-							}
-						} else {
-							listaPiloto.add(piloto);
-						}
+						listaPiloto = PilotoLogica.atualizaListaPiloto(listaPiloto, piloto);
 					}
 				}
 
@@ -78,6 +56,8 @@ public class NegocioLogica {
 		}
 
 	}
+
+
 
 
 }
