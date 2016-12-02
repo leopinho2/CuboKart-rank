@@ -118,6 +118,8 @@ public class PilotoLogicaTest {
 
 		assertEquals(senna.getNome(), listaTest.get(0).getNome());
 		assertEquals(122023, listaTest.get(0).getTempoDeProva());
+		assertEquals(2, listaTest.get(0).getQuantidadeDeVoltas());
+		
 
 	}
 
