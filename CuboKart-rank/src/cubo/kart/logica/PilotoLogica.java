@@ -33,7 +33,12 @@ public class PilotoLogica {
 		}
 		return listaNova;
 	}
-
+	
+	/**
+	 * Carrega dados do piloto
+	 * @param celulas
+	 * @return
+	 */
 	public static Piloto carregarDadosPiloto(String[] celulas) {
 		Piloto piloto = new Piloto();
 
