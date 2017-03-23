@@ -40,19 +40,17 @@ public class PilotoLogica {
 	 * @return
 	 */
 	public static Piloto carregarDadosPiloto(String[] celulas) {
-		Piloto piloto = new Piloto();
 
 		String codigoNome = celulas[1];
 		String[] codigoNomeSeparados = codigoNome.split(" – ");
-		piloto.setCodigo(codigoNomeSeparados[0]);
-		piloto.setNome(codigoNomeSeparados[1]);
-
+		
 		int numeroVolta = Integer.parseInt(celulas[2]);
-		piloto.setQuantidadeDeVoltas(numeroVolta);
-
+		
 		String tempoVolta = celulas[3];
 		int tempoVoltaMilissegundos = Utils.coverterMinutosEmMilissegundos(tempoVolta);
-		piloto.setTempoDeProva(tempoVoltaMilissegundos);
+		
+		Piloto piloto = new Piloto(codigoNomeSeparados[0],codigoNomeSeparados[1],numeroVolta,tempoVoltaMilissegundos);
+		
 		return piloto;
 	}
 
